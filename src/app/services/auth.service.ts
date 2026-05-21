@@ -1,9 +1,9 @@
 // auth.service.ts - SoundCloud OAuth 2.1 with PKCE
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, tap, switchMap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AuthToken, PKCEChallenge } from '../models';
 import { ToastService } from './toast.service';
@@ -130,34 +130,37 @@ export class AuthService {
       return;
     }
 
-    // NOTE: Token exchange should go through backend to keep client_secret secure.
-    // For now, send to SoundCloud directly with PKCE only (no client_secret).
-    // TODO: Move to backend endpoint at environment.tokenExchangeUrl
-    const tokenUrl = `${this.authBaseUrl}/oauth/token`;
-    const body = new URLSearchParams();
-    body.set('grant_type', 'authorization_code');
-    body.set('client_id', this.clientId);
-    body.set('redirect_uri', this.redirectUri);
-    body.set('code_verifier', codeVerifier);
-    body.set('code', code);
+    const tokenUrl = environment.tokenExchangeUrl;
+    const body = {
+      code,
+      code_verifier: codeVerifier,
+      redirect_uri: this.redirectUri,
+    };
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Accept': 'application/json; charset=utf-8',
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
     });
 
-    this.http.post<AuthToken>(tokenUrl, body.toString(), { headers }).subscribe({
+    this.http.post<AuthToken>(tokenUrl, body, { headers }).subscribe({
       next: (response) => {
         this.storeTokens(response);
         this.cleanupPKCE();
         this.router.navigate(['/my-profile']);
       },
-      error: () => {
-        this.toastService.showNegativeToast('Login failed. Please try again.');
+      error: (error: HttpErrorResponse) => {
+        this.toastService.showNegativeToast(this.getAuthErrorMessage(error));
         this.cleanupPKCE();
         this.router.navigate(['/home']);
       },
     });
+  }
+
+  private getAuthErrorMessage(error: HttpErrorResponse): string {
+    if (error.status === 401) {
+      return 'SoundCloud refused the sign-in. Please try again.';
+    }
+    return 'Login failed. Please try again.';
   }
 
   // ==================== Token Management ====================
@@ -199,20 +202,15 @@ export class AuthService {
       return throwError(() => new Error('No refresh token available'));
     }
 
-    // NOTE: Token refresh should also go through backend.
-    // TODO: Move to backend endpoint at environment.tokenExchangeUrl
-    const tokenUrl = `${this.authBaseUrl}/oauth/token`;
-    const body = new URLSearchParams();
-    body.set('grant_type', 'refresh_token');
-    body.set('client_id', this.clientId);
-    body.set('refresh_token', refreshToken);
+    const tokenUrl = environment.tokenRefreshUrl;
+    const body = { refresh_token: refreshToken };
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Accept': 'application/json; charset=utf-8',
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
     });
 
-    return this.http.post<AuthToken>(tokenUrl, body.toString(), { headers }).pipe(
+    return this.http.post<AuthToken>(tokenUrl, body, { headers }).pipe(
       tap((response) => {
         this.storeTokens(response);
       }),

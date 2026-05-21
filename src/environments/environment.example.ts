@@ -27,5 +27,10 @@ export const environment = {
     return this.apiId === '---'
       ? ''
       : `https://${this.apiId}.execute-api.us-east-1.amazonaws.com/dev/auth/token`;
+  },
+  get tokenRefreshUrl(): string {
+    return this.apiId === '---'
+      ? ''
+      : `https://${this.apiId}.execute-api.us-east-1.amazonaws.com/dev/auth/refresh`;
   }
 };

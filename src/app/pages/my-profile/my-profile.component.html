@@ -4,7 +4,7 @@
   <!-- Error State -->
   <div class="error-state" *ngIf="error">
     <div class="error-content">
-      <span class="error-icon">⚠️</span>
+      <span class="error-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></span>
       <h2>{{ error }}</h2>
       <button class="retry-btn" (click)="loadProfile()">Try Again</button>
     </div>
@@ -32,7 +32,7 @@
           <h1 class="username">{{ user.full_name || user.username }}</h1>
           <p class="handle" *ngIf="user.full_name">&#64;{{ user.username }}</p>
           <p class="location" *ngIf="user.city || user.country">
-            📍 {{ user.city }}{{ user.city && user.country ? ", " : ""
+            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg> {{ user.city }}{{ user.city && user.country ? ", " : ""
             }}{{ user.country }}
           </p>
           <p class="join-date">Member since {{ getJoinDate() }}</p>

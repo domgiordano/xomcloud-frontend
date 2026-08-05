@@ -44,7 +44,7 @@
     <h2 class="section-title">What You Can Do</h2>
     <div class="features-grid">
       <div class="feature-card" *ngFor="let feature of features">
-        <span class="feature-icon">{{ feature.icon }}</span>
+        <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path [attr.d]="feature.iconPath"/></svg></span>
         <h3 class="feature-title">{{ feature.title }}</h3>
         <p class="feature-description">{{ feature.description }}</p>
       </div>

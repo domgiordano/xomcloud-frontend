@@ -1,3 +1,5 @@
+@import 'tokens';
+
 .loader-overlay {
   position: fixed;
   top: 0;
@@ -62,9 +64,9 @@
 
 .loader-message {
   color: #fff;
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 1px;
+  font-size: $text-md;
+  font-weight: $font-weight-medium;
+  letter-spacing: $tracking-wide;
   margin: 0;
   opacity: 0.9;
 }

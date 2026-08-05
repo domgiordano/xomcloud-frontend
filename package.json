@@ -12,8 +12,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "lint:css": "node scripts/stylelint-ratchet.mjs",
-    "lint:css:baseline": "node scripts/stylelint-ratchet.mjs --update"
+    "lint:css": "stylelint \"src/**/*.scss\"",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +34,7 @@
     "@angular-devkit/build-angular": "^18.2.21",
     "@angular/cli": "^18.2.21",
     "@angular/compiler-cli": "^18.2.14",
+    "@playwright/test": "^1.62.1",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
@@ -41,6 +43,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss-scss": "^4.0.9",
+    "serve": "^14.2.6",
     "stylelint": "^16.26.1",
     "typescript": "~5.4.0",
     "zone.js": "^0.14.10"

@@ -1,3 +1,5 @@
+@import 'tokens';
+
 .profile-container {
   min-height: 100vh;
   background: transparent;
@@ -16,14 +18,14 @@
     text-align: center;
 
     .error-icon {
-      font-size: 4rem;
+      font-size: $text-5xl;
       display: block;
       margin-bottom: 24px;
     }
 
     h2 {
       color: #fff;
-      font-size: 1.3rem;
+      font-size: $text-lg;
       margin: 0 0 24px 0;
     }
 
@@ -33,7 +35,7 @@
       color: #fff;
       border: none;
       border-radius: 25px;
-      font-size: 1rem;
+      font-size: $text-base;
       cursor: pointer;
       transition: all 0.3s ease;
 
@@ -96,27 +98,27 @@
   padding-bottom: 16px;
 
   .username {
-    font-size: 2.5rem;
+    font-size: $text-4xl;
     color: #fff;
     margin: 0 0 4px 0;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
   }
 
   .handle {
     color: #b0b0c0;
-    font-size: 1.1rem;
+    font-size: $text-md;
     margin: 0 0 8px 0;
   }
 
   .location {
     color: #8a8a9a;
-    font-size: 0.95rem;
+    font-size: $text-base;
     margin: 0 0 4px 0;
   }
 
   .join-date {
     color: #6a6a7a;
-    font-size: 0.9rem;
+    font-size: $text-sm;
     margin: 0 0 16px 0;
   }
 }
@@ -127,8 +129,8 @@
   color: #ff6b35;
   border: 2px solid #ff6b35;
   border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: $text-sm;
+  font-weight: $font-weight-medium;
   cursor: pointer;
   transition: all 0.3s ease;
 
@@ -181,17 +183,17 @@
 
   .stat-value {
     display: block;
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: $text-3xl;
+    font-weight: $font-weight-bold;
     color: #ff6b35;
     margin-bottom: 4px;
   }
 
   .stat-label {
-    font-size: 0.9rem;
+    font-size: $text-sm;
     color: #8a8a9a;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: $tracking-wide;
   }
 }
 
@@ -218,7 +220,7 @@
 
   .bio-text {
     color: #b0b0c0;
-    font-size: 1rem;
+    font-size: $text-base;
     line-height: 1.7;
     margin: 0;
     max-width: 800px;
@@ -242,8 +244,8 @@
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     color: #ff6b35;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: $text-sm;
+    font-weight: $font-weight-medium;
     cursor: pointer;
     transition: all 0.3s ease;
 
@@ -263,17 +265,17 @@
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: $text-xl;
   color: #fff;
   margin: 0;
-  font-weight: 600;
+  font-weight: $font-weight-semibold;
 }
 
 .view-all {
   color: #ff6b35;
   text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: $text-base;
+  font-weight: $font-weight-medium;
   transition: color 0.3s ease;
 
   &:hover {
@@ -345,17 +347,17 @@
   padding: 16px;
 
   .track-title {
-    font-size: 0.95rem;
+    font-size: $text-base;
     color: #fff;
     margin: 0 0 4px 0;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .track-artist {
-    font-size: 0.85rem;
+    font-size: $text-sm;
     color: #8a8a9a;
     margin: 0;
     white-space: nowrap;
@@ -408,17 +410,17 @@
   padding: 16px;
 
   .playlist-title {
-    font-size: 1rem;
+    font-size: $text-base;
     color: #fff;
     margin: 0 0 4px 0;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .playlist-tracks {
-    font-size: 0.85rem;
+    font-size: $text-sm;
     color: #8a8a9a;
     margin: 0;
   }
@@ -443,7 +445,7 @@
     padding-bottom: 0;
 
     .username {
-      font-size: 1.8rem;
+      font-size: $text-2xl;
     }
   }
 
@@ -459,7 +461,7 @@
     padding: 16px;
 
     .stat-value {
-      font-size: 1.5rem;
+      font-size: $text-xl;
     }
   }
 

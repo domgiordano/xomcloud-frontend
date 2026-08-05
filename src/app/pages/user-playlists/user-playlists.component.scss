@@ -1,3 +1,5 @@
+@import 'tokens';
+
 .user-playlists-container {
   min-height: 100vh;
   background: transparent;
@@ -12,7 +14,7 @@
   .back-link {
     color: #8a8a9a;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: $text-sm;
     display: inline-block;
     margin-bottom: 16px;
     transition: color 0.3s ease;
@@ -23,14 +25,14 @@
   }
   
   h1 {
-    font-size: 2rem;
+    font-size: $text-3xl;
     color: #fff;
     margin: 0 0 8px 0;
   }
   
   .playlist-count {
     color: #8a8a9a;
-    font-size: 1rem;
+    font-size: $text-base;
     margin: 0;
   }
 }
@@ -44,13 +46,13 @@
   text-align: center;
   
   .error-icon, .empty-icon {
-    font-size: 4rem;
+    font-size: $text-5xl;
     margin-bottom: 24px;
   }
   
   h2 {
     color: #fff;
-    font-size: 1.3rem;
+    font-size: $text-lg;
     margin: 0 0 12px 0;
   }
   
@@ -144,17 +146,17 @@
   padding: 16px;
   
   .playlist-title {
-    font-size: 1rem;
+    font-size: $text-base;
     color: #fff;
     margin: 0 0 8px 0;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   
   .playlist-meta {
-    font-size: 0.85rem;
+    font-size: $text-sm;
     color: #8a8a9a;
     margin: 0;
   }

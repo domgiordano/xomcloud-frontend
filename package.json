@@ -11,7 +11,9 @@
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "lint:css": "node scripts/stylelint-ratchet.mjs",
+    "lint:css:baseline": "node scripts/stylelint-ratchet.mjs --update"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +40,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss-scss": "^4.0.9",
+    "stylelint": "^16.26.1",
     "typescript": "~5.4.0",
     "zone.js": "^0.14.10"
   }

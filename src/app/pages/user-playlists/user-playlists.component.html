@@ -8,13 +8,13 @@
   </header>
 
   <div class="error-state" *ngIf="error">
-    <span class="error-icon">⚠️</span>
+    <span class="error-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></span>
     <h2>{{ error }}</h2>
     <button class="retry-btn" (click)="loadPlaylists()">Try Again</button>
   </div>
 
   <div class="empty-state" *ngIf="!error && playlists.length === 0">
-    <span class="empty-icon">📁</span>
+    <span class="empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg></span>
     <h2>No playlists found</h2>
     <p>This user hasn't created any playlists yet.</p>
   </div>

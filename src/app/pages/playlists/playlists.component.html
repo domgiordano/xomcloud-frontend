@@ -23,14 +23,14 @@
 
   <!-- Error State -->
   <div class="error-state" *ngIf="error">
-    <span class="error-icon">⚠️</span>
+    <span class="error-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></span>
     <h2>{{ error }}</h2>
     <button class="retry-btn" (click)="loadPlaylists()">Try Again</button>
   </div>
 
   <!-- Empty State -->
   <div class="empty-state" *ngIf="!error && getCurrentPlaylists().length === 0">
-    <span class="empty-icon">📋</span>
+    <span class="empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></span>
     <h2 *ngIf="activeTab === 'my'">No playlists yet</h2>
     <h2 *ngIf="activeTab === 'liked'">No liked playlists</h2>
     <p>Create or like playlists on SoundCloud to see them here.</p>

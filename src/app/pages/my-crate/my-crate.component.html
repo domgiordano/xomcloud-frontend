@@ -3,7 +3,7 @@
   <header class="page-header">
     <div class="header-content">
       <h1>
-        <span class="crate-icon">📦</span>
+        <span class="crate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2zm-1 18H5V9h14v11zm1-13H4V4h16v3z"/></svg></span>
         My Crate
       </h1>
       <p class="crate-summary" *ngIf="queue.length > 0">
@@ -76,7 +76,7 @@
   <!-- Empty State -->
   <div class="empty-state" *ngIf="queue.length === 0 && !isProcessing">
     <div class="empty-visual">
-      <span class="empty-icon">📦</span>
+      <span class="empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2zm-1 18H5V9h14v11zm1-13H4V4h16v3z"/></svg></span>
     </div>
     <h2>Your crate is empty</h2>
     <p>Add tracks from your liked songs, playlists, or search results</p>

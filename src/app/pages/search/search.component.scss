@@ -1,3 +1,5 @@
+@import 'tokens';
+
 .search-container {
   min-height: 100vh;
   background: transparent;
@@ -12,14 +14,14 @@
   margin-bottom: 48px;
   
   h1 {
-    font-size: 2.5rem;
+    font-size: $text-4xl;
     color: #fff;
     margin: 0 0 8px 0;
   }
   
   .subtitle {
     color: #8a8a9a;
-    font-size: 1.1rem;
+    font-size: $text-md;
     margin: 0 0 32px 0;
   }
 }
@@ -42,7 +44,7 @@
 .search-input {
   width: 100%;
   padding: 18px 50px 18px 56px;
-  font-size: 1.1rem;
+  font-size: $text-md;
   color: #fff;
   background: rgba(255, 255, 255, 0.08);
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -70,7 +72,7 @@
   background: rgba(255, 255, 255, 0.1);
   border: none;
   color: #8a8a9a;
-  font-size: 14px;
+  font-size: $text-sm;
   cursor: pointer;
   transition: all 0.2s ease;
   
@@ -116,7 +118,7 @@
 .empty-state {
   .error-icon,
   .empty-icon {
-    font-size: 4rem;
+    font-size: $text-5xl;
     margin-bottom: 24px;
   }
   
@@ -128,7 +130,7 @@
   
   h2 {
     color: #fff;
-    font-size: 1.3rem;
+    font-size: $text-lg;
     margin: 0 0 12px 0;
   }
   
@@ -157,7 +159,7 @@
 .results-section {
   .results-count {
     color: #8a8a9a;
-    font-size: 0.9rem;
+    font-size: $text-sm;
     margin: 0 0 24px 0;
   }
 }
@@ -241,17 +243,17 @@
   padding: 16px;
   
   .track-title {
-    font-size: 0.95rem;
+    font-size: $text-base;
     color: #fff;
     margin: 0 0 4px 0;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   
   .track-artist {
-    font-size: 0.85rem;
+    font-size: $text-sm;
     color: #8a8a9a;
     margin: 0 0 8px 0;
     white-space: nowrap;
@@ -262,7 +264,7 @@
   .track-meta {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem;
+    font-size: $text-xs;
     color: #6a6a7a;
   }
 }
@@ -275,13 +277,13 @@
   
   .search-header {
     h1 {
-      font-size: 2rem;
+      font-size: $text-3xl;
     }
   }
   
   .search-input {
     padding: 14px 45px 14px 48px;
-    font-size: 1rem;
+    font-size: $text-base;
   }
   
   .tracks-grid {

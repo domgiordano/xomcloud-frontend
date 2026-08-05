@@ -1,3 +1,8 @@
+// Shared Xomware design tokens — type scale, tracking, weights, spacing,
+// radius, motion, breakpoints. Local declarations that duplicated these have
+// been removed; everything below is Xomcloud-specific (colour, shadows).
+@import 'tokens';
+
 // _variables.scss - XomCloud design tokens
 
 // Brand Colors
@@ -49,22 +54,12 @@ $shadow-toolbar: 0 2px 20px rgba(0, 0, 0, 0.3);
 $font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 
 // Border Radius
-$radius-sm: 8px;
-$radius-md: 12px;
-$radius-lg: 16px;
-$radius-xl: 20px;
-$radius-pill: 25px;
 $radius-full: 50%;
 
 // Transitions
-$transition-fast: 0.2s ease;
 $transition-normal: 0.3s ease;
 
 // Breakpoints
-$breakpoint-sm: 480px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1200px;
 
 // Z-index layers
 $z-background: 0;

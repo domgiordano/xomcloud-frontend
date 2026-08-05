@@ -1,3 +1,5 @@
+@import 'tokens';
+
 .toolbar {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: #fff;
@@ -41,8 +43,8 @@
     text-decoration: none;
     padding: 8px 14px;
     border-radius: 25px;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: $text-sm;
+    font-weight: $font-weight-medium;
     transition: all 0.3s ease;
     white-space: nowrap;
 
@@ -67,8 +69,8 @@
   padding: 6px 14px;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: $text-xs;
+  font-weight: $font-weight-medium;
   transition: all 0.3s ease;
   margin-left: 12px;
 
@@ -89,7 +91,7 @@
   padding: 6px;
 
   .hamburger {
-    font-size: 22px;
+    font-size: $text-lg;
     color: #ff6b35;
   }
 }
@@ -112,7 +114,7 @@
     padding: 10px 14px;
     border-radius: 8px;
     margin: 2px 0;
-    font-size: 0.85rem;
+    font-size: $text-sm;
     transition: all 0.3s ease;
 
     &:hover {
@@ -156,8 +158,8 @@
   padding: 0 5px;
   background: #ff6b35;
   color: #fff;
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: $text-3xs;
+  font-weight: $font-weight-bold;
   border-radius: 9px;
   line-height: 1;
 }
@@ -190,7 +192,7 @@
     display: block;
     
     .hamburger {
-      font-size: 20px;
+      font-size: $text-lg;
     }
   }
 

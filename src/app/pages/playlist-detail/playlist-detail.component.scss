@@ -1,3 +1,5 @@
+@import 'tokens';
+
 .playlist-detail-container {
   min-height: 100vh;
   background: transparent;
@@ -16,7 +18,7 @@
   text-align: center;
   
   .error-icon {
-    font-size: 4rem;
+    font-size: $text-5xl;
     margin-bottom: 24px;
   }
   
@@ -35,7 +37,7 @@
   display: inline-block;
   color: #8a8a9a;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: $text-sm;
   margin-bottom: 24px;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -71,23 +73,23 @@
   padding-top: 16px;
   
   .playlist-type {
-    font-size: 0.75rem;
+    font-size: $text-2xs;
     color: #ff6b35;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
+    letter-spacing: $tracking-wide;
+    font-weight: $font-weight-semibold;
   }
   
   h1 {
-    font-size: 2rem;
+    font-size: $text-3xl;
     color: #fff;
     margin: 8px 0 12px 0;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
   }
   
   .playlist-meta {
     color: #8a8a9a;
-    font-size: 0.95rem;
+    font-size: $text-base;
     margin: 0 0 12px 0;
     display: flex;
     align-items: center;
@@ -110,7 +112,7 @@
   
   .playlist-description {
     color: #8a8a9a;
-    font-size: 0.9rem;
+    font-size: $text-sm;
     margin: 0;
     line-height: 1.5;
     max-width: 500px;
@@ -131,8 +133,8 @@
   border: none;
   border-radius: 25px;
   color: #fff;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: $text-base;
+  font-weight: $font-weight-medium;
   cursor: pointer;
   transition: all 0.3s ease;
   
@@ -187,7 +189,7 @@
 .track-number {
   width: 24px;
   color: #6a6a7a;
-  font-size: 0.9rem;
+  font-size: $text-sm;
   text-align: center;
   flex-shrink: 0;
 }
@@ -230,7 +232,7 @@
   min-width: 0;
   
   .track-title {
-    font-size: 0.95rem;
+    font-size: $text-base;
     color: #fff;
     margin: 0 0 4px 0;
     white-space: nowrap;
@@ -239,7 +241,7 @@
   }
   
   .track-artist {
-    font-size: 0.85rem;
+    font-size: $text-sm;
     color: #8a8a9a;
     margin: 0;
     cursor: pointer;
@@ -252,7 +254,7 @@
 
 .track-duration {
   color: #6a6a7a;
-  font-size: 0.85rem;
+  font-size: $text-sm;
   flex-shrink: 0;
 }
 
@@ -298,13 +300,13 @@
   text-align: center;
   
   .empty-icon {
-    font-size: 4rem;
+    font-size: $text-5xl;
     margin-bottom: 16px;
   }
   
   h2 {
     color: #8a8a9a;
-    font-size: 1.2rem;
+    font-size: $text-lg;
     margin: 0;
   }
 }
@@ -336,7 +338,7 @@
     padding-top: 0;
     
     h1 {
-      font-size: 1.5rem;
+      font-size: $text-xl;
     }
     
     .playlist-meta {

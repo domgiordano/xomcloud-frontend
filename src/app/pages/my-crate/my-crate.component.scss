@@ -1,3 +1,5 @@
+@import 'tokens';
+
 .crate-container {
   min-height: 100vh;
   background: transparent;
@@ -64,19 +66,19 @@
 
 .progress-message {
   color: #fff;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: $text-base;
+  font-weight: $font-weight-medium;
 }
 
 .progress-percent {
   color: #ff6b35;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: $text-base;
+  font-weight: $font-weight-semibold;
 }
 
 .progress-track {
   color: #b0b0c0;
-  font-size: 0.85rem;
+  font-size: $text-sm;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -117,7 +119,7 @@
 
 .header-content {
   h1 {
-    font-size: 2rem;
+    font-size: $text-3xl;
     color: #fff;
     margin: 0 0 8px 0;
     display: flex;
@@ -125,19 +127,19 @@
     gap: 12px;
     
     .crate-icon {
-      font-size: 1.6rem;
+      font-size: $text-2xl;
     }
   }
   
   .crate-summary {
     color: #8a8a9a;
-    font-size: 1rem;
+    font-size: $text-base;
     margin: 0;
   }
 
   .crate-limit-warning {
     color: #f59e0b;
-    font-size: 0.85rem;
+    font-size: $text-sm;
     margin: 8px 0 0 0;
   }
 }
@@ -174,7 +176,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   color: #fff;
-  font-size: 0.85rem;
+  font-size: $text-sm;
   cursor: pointer;
   transition: all 0.2s ease;
   
@@ -185,13 +187,13 @@
 
 .selection-count {
   color: #ff6b35;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-weight: $font-weight-medium;
+  font-size: $text-sm;
 }
 
 .selection-hint {
   color: #8a8a9a;
-  font-size: 0.85rem;
+  font-size: $text-sm;
 }
 
 .selection-actions {
@@ -205,7 +207,7 @@
   border: 1px solid rgba(239, 68, 68, 0.5);
   border-radius: 20px;
   color: #ef4444;
-  font-size: 0.85rem;
+  font-size: $text-sm;
   cursor: pointer;
   transition: all 0.2s ease;
   
@@ -217,8 +219,8 @@
 .clear-btn {
   padding: 12px 24px;
   border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: $text-sm;
+  font-weight: $font-weight-medium;
   cursor: pointer;
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.1);
@@ -237,8 +239,8 @@
   gap: 10px;
   padding: 12px 28px;
   border-radius: 25px;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: $text-base;
+  font-weight: $font-weight-semibold;
   cursor: pointer;
   transition: all 0.3s ease;
   background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
@@ -269,13 +271,13 @@
   
   .progress-phase {
     color: #fff;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
   }
   
   .progress-count,
   .progress-percent {
     color: #8a8a9a;
-    font-size: 0.9rem;
+    font-size: $text-sm;
   }
 }
 
@@ -303,7 +305,7 @@
 
 .progress-track {
   color: #8a8a9a;
-  font-size: 0.85rem;
+  font-size: $text-sm;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -323,20 +325,20 @@
     margin-bottom: 24px;
     
     .empty-icon {
-      font-size: 5rem;
+      font-size: $text-5xl;
       opacity: 0.7;
     }
   }
   
   h2 {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: $text-xl;
     margin: 0 0 12px 0;
   }
   
   p {
     color: #8a8a9a;
-    font-size: 1rem;
+    font-size: $text-base;
     margin: 0 0 32px 0;
     max-width: 400px;
   }
@@ -352,8 +354,8 @@
 .action-link {
   padding: 12px 24px;
   border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: $text-sm;
+  font-weight: $font-weight-medium;
   text-decoration: none;
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.1);
@@ -428,7 +430,7 @@
   padding: 2px 8px;
   background: rgba(251, 191, 36, 0.2);
   color: #fbbf24;
-  font-size: 0.7rem;
+  font-size: $text-3xs;
   border-radius: 10px;
 }
 
@@ -436,7 +438,7 @@
   width: 28px;
   text-align: center;
   color: #6a6a7a;
-  font-size: 0.9rem;
+  font-size: $text-sm;
   flex-shrink: 0;
 }
 
@@ -482,17 +484,17 @@
   min-width: 0;
   
   .item-title {
-    font-size: 0.95rem;
+    font-size: $text-base;
     color: #fff;
     margin: 0 0 4px 0;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   
   .item-artist {
-    font-size: 0.85rem;
+    font-size: $text-sm;
     color: #8a8a9a;
     margin: 0;
     white-space: nowrap;
@@ -503,7 +505,7 @@
 
 .item-duration {
   color: #6a6a7a;
-  font-size: 0.9rem;
+  font-size: $text-sm;
   flex-shrink: 0;
 }
 
@@ -567,12 +569,12 @@
   
   .bar-count {
     color: #fff;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
   }
   
   .bar-duration {
     color: #8a8a9a;
-    font-size: 0.85rem;
+    font-size: $text-sm;
   }
 }
 
@@ -582,8 +584,8 @@
   gap: 8px;
   padding: 12px 24px;
   border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: $text-sm;
+  font-weight: $font-weight-semibold;
   cursor: pointer;
   background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
   color: #fff;
@@ -614,13 +616,13 @@
 
 .bar-count {
   color: #fff;
-  font-weight: 500;
-  font-size: 0.95rem;
+  font-weight: $font-weight-medium;
+  font-size: $text-base;
 }
 
 .bar-duration {
   color: #8a8a9a;
-  font-size: 0.8rem;
+  font-size: $text-xs;
 }
 
 .bar-download-btn {
@@ -629,8 +631,8 @@
   gap: 8px;
   padding: 12px 24px;
   border-radius: 25px;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: $text-base;
+  font-weight: $font-weight-semibold;
   cursor: pointer;
   background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
   color: #fff;

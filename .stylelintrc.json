@@ -30,6 +30,7 @@
   "overrides": [
     {
       "files": [
+        "src/app/styles/_tokens.scss",
         "src/app/styles/_variables.scss"
       ],
       "rules": {

@@ -13,8 +13,17 @@ on:
 
 jobs:
   build:
+    permissions:
+      id-token: write # mint the OIDC token traded for the deploy role
+      contents: read
     runs-on: ubuntu-latest
     steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+
       - name: Checkout code
         uses: actions/checkout@v6
 
@@ -34,10 +43,6 @@ jobs:
           echo "SOUNDCLOUD_CLIENT_ID=$(aws ssm get-parameter --name "/xomcloud/soundcloud/CLIENT_ID" --with-decryption --query "Parameter.Value" --output text)" >> soundcloud_credentials.env
           echo "API_AUTH_TOKEN=$(aws ssm get-parameter --name "/xomcloud/api/API_AUTH_TOKEN" --with-decryption --query "Parameter.Value" --output text)" >> soundcloud_credentials.env
           echo "API_ID=$(aws ssm get-parameter --name "/xomcloud/api/API_ID" --with-decryption --query "Parameter.Value" --output text)" >> soundcloud_credentials.env
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
 
       - name: Mask sensitive values
         run: |
@@ -60,28 +65,16 @@ jobs:
         run: npm run build -- --configuration production
 
       - name: Deploy to S3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "us-east-1"
         run: |
           aws s3 sync ./dist/xomcloud s3://xomcloud.xomware.com --delete
 
       - name: Make index.html non-cacheable
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "us-east-1"
         run: |
           aws s3 cp ./dist/xomcloud/index.html s3://xomcloud.xomware.com/index.html \
             --cache-control "no-cache, no-store, must-revalidate"
 
       - name: Invalidate CloudFront cache
         if: ${{ github.event.inputs.skip_cache_invalidation != 'true' }}
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "us-east-1"
         run: |
           DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[?contains(Aliases.Items, 'xomcloud.xomware.com')].Id" --output text)
           if [ -n "$DISTRIBUTION_ID" ]; then
